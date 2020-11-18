@@ -1,0 +1,43 @@
+#bgw{
+    background-color: grey;
+}
+.buttonHeight{
+    height: 7rem;
+}
+.fontSize{
+    font-size: 4rem;
+}
+body{
+    background-color: grey;
+}
+#fond{
+    position: absolute;
+    bottom: 6em;
+}
+.heightCard{
+    height: 10rem;
+}
+.fontSizes{
+    font-size: 4rem;
+}
+
+@media (max-width: 576px) {
+    .fontSizes {
+      font-size: 2.6rem;
+    }
+    .fontSize{
+        font-size: 1.5rem;
+    }
+    .h
+    #fond{
+        position: relative;
+        background-color: grey;
+        bottom: 6rem;
+    }
+    .yesaille{
+        height: 7.5rem;
+    }
+  }
+  .yesaille{
+      height: 15rem;
+  }
