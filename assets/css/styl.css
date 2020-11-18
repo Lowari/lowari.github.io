@@ -1,9 +1,9 @@
 #bgw{
     background-color: grey;
 }
-.buttonHeight{
+/* .buttonHeight{
     height: 7rem;
-}
+} */
 .fontSize{
     font-size: 4rem;
 }
@@ -15,7 +15,7 @@ body{
     bottom: 6em;
 }
 .heightCard{
-    height: 10rem;
+    height: 7rem;
 }
 .fontSizes{
     font-size: 4rem;
