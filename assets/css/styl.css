@@ -12,11 +12,11 @@ body{
 }
 #fond{
     position: absolute;
-    bottom: 6em;
+    bottom: 2em;
 }
-.heightCard{
-    height: 7rem;
-}
+/* .heightCard{
+    height: 1rem;
+} */
 .fontSizes{
     font-size: 4rem;
 }
