@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Chocolaterie</title>
+</head>
+
+<body>
+
+    <!-- mike -->
+    <div class="container-fluid">
+        <div id="bgHeader">
+
+            <div class="row">
+
+                <div class="col-12 logoSpace pr-0 pl-0">
+
+                    <nav class="navbar navbar-expand-lg navbar-light col-12 colorNavBar d-flex fixed-top shadow">
+
+                        <!-- Menu Burger -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div>
+                            <img src="assets/img/logo2.jpg" height="100rem" width="130rem" alt="logo">
+                        </div>
+
+                        <!-- Petit caddie small ecran-->
+                        <div id="test" class="d-block d-md-none">
+                            <div class="dropdown col-2 d-flex justify-content-center align-items-center">
+
+                                <span style="color:#2B180F"><i
+                                        class="fas fa-shopping-cart fa-2x justify-self-right ml-auto text-white" data-toggle="modal" data-target="#shoppingBasket"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Liste des menus -->
+                        <div class="collapse navbar-collapse" id="navbarNav">
+
+                            <div class="dropdown d-flex justify-content-center align-items-center margeMenu">
+                                <a class="navbar-brand d-flex justify-content-between w-100  ="
+                                    href="#chocolatePresentationProduct"><span class="sizeOfFont text-white">
+                                        Présentation</span>
+                                </a>
+
+                            </div>
+
+
+                            <div class="dropdown d-flex justify-content-center align-items-center margeMenu">
+                                <a class="navbar-brand d-flex justify-content-between w-100 text-black"
+                                    href="#pateTar"><span class="sizeOfFont text-white">Pâte à tartiner</span>
+                                </a>
+                            </div>
+
+
+                            <div class="dropdown d-flex justify-content-center align-items-center margeMenu">
+                                <a class="navbar-brand d-flex justify-content-between w-100 text-black"
+                                    href="#chocolatNoel"><span class="sizeOfFont text-white">
+                                        Chocolats de Noël</span>
+                                </a>
+                            </div>
+
+                            <div class="dropdown d-flex justify-content-center align-items-center margeMenu">
+                                <a class="navbar-brand d-flex justify-content-between w-100 text-black"
+                                    href="#chocolatTradi"><span class="sizeOfFont text-white">
+                                        Chocolats traditionels</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Petit caddie grand ecran-->
+                        <div id="test" class="d-none d-md-block">
+                            <div class="dropdown col-2 d-flex justify-content-center align-items-center">
+
+                                <span class="text-white"><i
+                                        class="fas fa-shopping-cart fa-2x justify-self-right ml-auto"
+                                        data-toggle="modal" data-target="#shoppingBasket"
+                                        id="buttonTriggerCart"></i></span>
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Panier Modal -->
+
+    <div class="modal fade" id="shoppingBasket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog col">
+            <div class="modal-content" style="width: 50rem;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Panier <i class="fas fa-shopping-basket"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive-md">
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Nom</th>
+                                    <th>Prix Unitaire*</th>
+                                    <th>Quantité</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tfoot>
+                                <tr>
+                                    <th colspan="4" class="text-center">Total du panier</th>
+                                    <th id="totalFooter"></th>
+                                </tr>
+                            </tfoot>
+
+                            <tbody id="tableCart">
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <p class="text-sm-right">*Taxes incluses</p>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success font-weight-bold" id="validPanier">Valider le panier</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Céline -->
+    <!-- caroussel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="assets/img/caroussel1.jpg" alt="img_caroussel_1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Venez découvrir nos nouveautés pâtes à tartiner</h5>
+                    <p>Certifier sans huile de palme !</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/img/caroussel2.jpg" alt="img_caroussel_2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="font-weight-bold">Coffret édition Noël</h5>
+                    <p>Venez découvrir tout nos coffrets chocolats à offrir pour les fêtes !</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="assets/img/caroussel3.jpg" alt="img_caroussel_3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Nos fêves de cacao certifié commerce équitable !</h5>
+                    <p>Des fèves de cacao d’origines différentes, privilégiant la qualité à la quantité.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
+
+    <div id="main-container">
+
+        <!-- célnine -->
+        <!-- présentation -->
+        <div id="chocolatePresentationProduct" class="fantom"></div>
+        <div class="text-center col">
+
+            <!-- <img src="assets/img/trenner3.svg" alt="separateur" m-5 class="col-12"> -->
+
+            <h1 class="presentation-title col">Présentation de la boutique</h1>
+
+            <p class="product-description col">
+                Dans les ateliers de La Manu, les chocolats sont imaginés et toujours réalisés de manière artisanale
+                :
+                Julien, Céline, Mickaël et Nicolas privilégient la qualité à la quantité ! Des fèves de cacao
+                d’origines
+                différentes naissent une multitude de bonbons chocolatés : blanc, noir ou au lait, à tous les
+                parfums et
+                pour toutes les envies : une seule ambition, vous surprendre !
+            </p>
+
+            <h2 class="product-title">Nos pâtes à tartiner</h2>
+
+            <p class="product-description">
+                Notre recette traditionnelle au goût puissant de chocolat avec son cacao fin et ses noisettes
+                françaises.
+                Evidemment, notre pâte à tartiner est préparée sans huile de palme !
+            </p>
+
+            <h2 class="product-title">Nos chocolats de Noël</h2>
+
+            <p class="product-description">
+                Par désir, par passion, nous avons sélectionné des cacaos de grandes origines pour élaborer ces
+                recettes
+                de
+                ganaches intenses.
+                L'indispensable pour Noël pour patienter jusqu'à la plus belle des fêtes avec gourmandise !
+            </p>
+
+            <h2 class="product-title">Nos chocolats traditionels</h2>
+
+            <p class="product-description">
+                Une véritable passion pour le chocolat ! Nous avons envie de vous faire découvrir toutes les
+                facettes et
+                les
+                goûts de ce produit. Depuis toujours, toutes nos créations artisanales sont réalisées à partir de
+                fèves
+                de
+                cacao minutieusement sélectionnées par nos maîtres chocolatiers. Notre histoire, nous la partageons
+                avec
+                vous en créant des produits pour tous les goûts.
+            </p>
+
+            <div class="col">
+                <img src="assets/img/feve_cacao.jpg" class="presentation-img-cacao img-fluid shadow" alt="cacaoFeve">
+            </div>
+            <div>
+                <img src="assets/img/trenner3.svg" alt="separateur" class="col-8 mt-5">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="pateTar" class="fantom"></div>
+
+    <!-- Lowa -->
+    <h1 class="text-center tradChocoTitle">Pâte à tartiner</h1>
+
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+
+                <!-- Première Card -->
+                <div class="card text-center mr-auto m-5 shadow" style='width: 18rem;'>
+                    <img src="assets/img/noisette.jpg" class="card-img-top imgCard" alt="Pate à tartiner noisette">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner noisette</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal"
+                            data-target="#noisette">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="noisette" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner
+                                            noisette
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/noisette.jpg" class="imgModal"
+                                            alt="Pate à tartiner noisette">
+                                        <p class="mt-4">La pâte à tartiner extrêmement noisette vous
+                                            plongera
+                                            littéralement en enfance avec sa texture ultra-gourmande et son
+                                            déliceux
+                                            goût de praliné torréfié. La profondeur du chocolat noir et sa
+                                            petite
+                                            pointe
+                                            de fleur de sel pour réveiller vos papilles en fin de bouche.
+                                        </p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            10 €
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success font-weight-bold buttonAddToCart"
+                                            onclick="addToCart('assets/img/noisette.jpg','Pâte à tartiner noisette', 10, 1)">Ajouter
+                                            au
+                                            panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Deuxième card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/truffe2.jpg" class="card-img-top imgCard" alt="Pate à tartiner truffe">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner truffe</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal" data-target="#truffe">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="truffe" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner
+                                            truffe
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/truffe2.jpg" class="imgModal" alt="truffe">
+                                        <p class="mt-4">Confectionnée à partir d'ingrédients de qualité,
+                                            cette
+                                            pâte
+                                            à tartiner Grand Classique Truffe est à déguster sans modération
+                                        </p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            12 €</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success"
+                                            onclick="addToCart('assets/img/truffe2.jpg','pâte à tartiner truffe', 12, 1)">Ajouter
+                                            au
+                                            Panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Troisième Card -->
+                <div class="card text-center mr-auto m-5 shadow" style='width: 18rem;'>
+                    <img src="assets/img/pate.a.tartiner.vegan.jpg" class="card-img-top imgCard"
+                        alt="Pate à tartiner noisette">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner vegan</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal" data-target="#vegan">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="vegan" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner
+                                            vegan
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/pate.a.tartiner.vegan.jpg" class="imgModal"
+                                            alt="Pate à tartiner noisette">
+                                        <p class="mt-4">Cette pâte à tartiner aux noisettes de chez Vego se
+                                            déguste
+                                            dans la tranquillité, seul(e), avec une petite cuillère, les
+                                            yeux
+                                            fermés
+                                            ! Un délice !</p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            8 €
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success font-weight-bold"
+                                            onclick="addToCart('assets/img/pate.a.tartiner.vegan.jpg','pâte à tartiner vegan', 8, 1)">Ajouter
+                                            au
+                                            panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <!-- Qutrième Card -->
+                <div class="card text-center mr-auto m-5 shadow" style='width: 18rem;'>
+                    <img src="assets/img/classlique.jpg" class="card-img-top imgCard" alt="Pate à tartiner noisette">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner classique</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal" data-target="#classic">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="classic" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner
+                                            classique
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/classlique.jpg" class="imgModal"
+                                            alt="Pate à tartiner noisette">
+                                        <p class="mt-4">Pâte à tartiner artisanale SANS huile de palme et
+                                            SANS
+                                            OGM.
+                                            Confectionnée à partir d'ingrédients de qualité, cette pâte à
+                                            tartiner
+                                            Grand Classique</p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            7 €
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success font-weight-bold"
+                                            onclick="addToCart('assets/img/classlique.jpg','pâte à tartiner vegan', 7, 1)">Ajouter
+                                            au
+                                            panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cinquième Card -->
+                <div class="card text-center mr-auto m-5 shadow" style='width: 18rem;'>
+                    <img src="assets/img/noel.jpg" class="card-img-top imgCard" alt="Pate à tartiner noisette">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner Noël</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal" data-target="#noel">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="noel" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner
+                                            Noël
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/noel.jpg" class="imgModal" alt="Pate à tartiner noisette">
+                                        <p class="mt-4">Découvrez notre gourmande Pâte à tartiner de Noël
+                                            aux
+                                            noisettes du Lot-et-Garonne.
+                                            Accompagnement idéal des petits déjeuners gourmands, ou bien des
+                                            après-midi crêpes et gaufres, cette pâte à tartiner saura ravir
+                                            toute la
+                                            famille.</p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            7 €
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success font-weight-bold"
+                                            onclick="addToCart('assets/img/noel.jpg','pâte à tartiner vegan', 7, 1)">Ajouter
+                                            au
+                                            panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sixième Card -->
+                <div class="card text-center mr-auto m-5 shadow" style='width: 18rem;'>
+                    <img src="assets/img/amendes.jpg" class="card-img-top imgCard" alt="Pate à tartiner noisette">
+                    <div class="card-body">
+                        <p class="card-text text-center h5">Pâte à tartiner Cacao</p>
+
+                        <button type="button" class="btn btnPate text-white" data-toggle="modal" data-target="#amendes">
+                            Description
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="amendes" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Pâte à tartiner aux
+                                            amendes
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="assets/img/amendes.jpg" class="imgModal"
+                                            alt="Pate à tartiner noisette">
+                                        <p class="mt-4">Préparé avec un procédé artisanal et seulement avec
+                                            des
+                                            ingrédients naturels sélectionnés avec soin et de haute qualité.
+                                            La
+                                            pâte
+                                            aux amendes allie un goût unique à une expérience sensorielle
+                                            délicate
+                                            et épanouissante</p>
+                                        <p class="bgPriceModal text-white text-center font-weight-bold mt-4">
+                                            Prix :
+                                            8 €
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success font-weight-bold"
+                                            onclick="addToCart('assets/img/amendes.jpg','pâte à tartiner vegan', 8, 1)">Ajouter
+                                            au
+                                            panier</button>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- nicolas -->
+    <div id="chocolatNoel" class="fantom"></div>
+
+
+
+    <!-- <div id="chocolatNoel"> -->
+
+    <h1 class="text-center tradChocoTitle">Chocolat de Noël</h1>
+
+    <div class="container">
+        <div class="col">
+
+            <div class="row">
+                <!-- premiere card -->
+                <div class="card text-center mr-auto m-5" style="width: 18rem;">
+                    <img src="assets/img/noel9.jpeg" class="card-img-top" alt="chocolat noel">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Boite de noel</h5>
+                        <button type="button" class="btn btn-nico" data-toggle="modal" data-target="#modal-boite1">
+                            Description
+                        </button>
+                    </div>
+
+                    <!-- premiere modal -->
+
+                    <div class="modal fade" id="modal-boite1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Boite de noel</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/noel9.jpeg" class="imgModal">
+                                    <p class="mt-4">Fèves de cacao, beurre de cacao, sucre, LAIT ENTIER, CRÉME,
+                                        NOISETTES
+                                        du
+                                        Piémont,
+                                        AMANDES Valencia, fruits (cassis, passion, framboise, citron, citron
+                                        vert,
+                                        figue, mangue), BEURRE, raisins, crêpe dentelle (FARINE DE FROMENT,
+                                        sucre,
+                                        BEURRE, OEUFS, sel et poudre à lever), fruits confits (cerise,
+                                        orange,
+                                        citron,
+                                        melon et marron) alcool (rhum), noix de coco, CACAHUÈTES, PISTACHES,
+                                        Spéculoos,
+                                        café, gingembre, vanille bourbon, thé, basilic, cannelle, poivres,
+                                        Fleur
+                                        de
+                                        sel
+                                        de Guérande, LÉCITHINE DE SOJA, eau de fleur d’oranger.</p>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 15 €</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel9.jpeg','pâte à tartiner vegan', 15, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- deuxieme card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/noel2.jpg" class="card-img-top" alt="Img Coffret Noel">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Coffret de noel</h5>
+                        <button type="button" class=" btn btn-nico" data-toggle="modal" data-target="#modal-boite2">
+                            Description
+                        </button>
+                    </div>
+
+                    <!-- deuxieme modal -->
+
+                    <div class="modal fade" id="modal-boite2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret de noel</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body shadow">
+                                    <img src="assets/img/noel2.jpg" class="imgModal">
+                                    <p class="mt-4">Cette boite de chocolat est composée de :
+
+                                        22 chocolats noir et/ou au lait (environ 250g),
+                                        ou 50 chocolats (environ 3(0g),
+                                        ou 85 chocolats (environ 500g),</p>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 20 €</p>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel2.jpg','pâte à tartiner vegan', 20, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- troisieme card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/noel3.jpg" class="card-img-top" alt="Img Coffret Cadeau">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Coffret cadeaux</h5>
+                        <button type="button" class="btn btn-nico" data-toggle="modal" data-target="#modal-boite3">
+                            Description
+                        </button>
+                    </div>
+
+
+
+                    <!-- troisieme modal -->
+
+                    <div class="modal fade" id="modal-boite3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret cadeaux</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body shadow">
+                                    <img src="assets/img/noel3.jpg" class="imgModal">
+                                    <P class="mt-4">Cette boîte de chocolat est le présent idéal qui émerveillera vos
+                                        papilles.
+                                        Nous avons sélectionné avec soin et exigence les matières premières :
+                                        amandes et
+                                        noisettes pour la fabrication du praliné, en passant par les épices où
+                                        vanille
+                                        de
+                                        Madagascar croise fève de Tonka, gingembre et thé noir... sans oublier
+                                        l'élément
+                                        phare - Le Chocolat.</P>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 25 €</p>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel3.jpg','pâte à tartiner vegan', 25, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+
+                <!-- quatrieme card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/noel4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Oeuf chocolat</h5>
+                        <button type="button" class="btn btn-nico" data-toggle="modal" data-target="#modal-boite4">
+                            Description
+                        </button>
+                    </div>
+
+                    <!-- quatrieme modal -->
+                    <div class="modal fade" id="modal-boite4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Oeuf chocolat</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body shadow">
+                                    <img src="assets/img/noel4.jpg" class="imgModal">
+                                    <p class="mt-4">Ingrédients: chocolat noir, chocolat au lait, chocolat blanc, pâte
+                                        de
+                                        cacao,
+                                        sucre, lait entier et écrémé en poudre, émulsifiant: lécithine de
+                                        soja,
+                                        extrait
+                                        naturel de vanille, beurre de cacao, beurre frais (lait), sorbitol,
+                                        crème
+                                        fraîche (lait), café, épices, blé noir, concentré de citron, orange,
+                                        cerise,
+                                        gingembre, noisette, amande, pailleté feuilletine (gluten),
+                                        nougatine,
+                                        cacahuètes, thé, alcool, sirop de glucose, sucre inverti, pectine.
+                                    </p>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 30 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel4.jpg','pâte à tartiner vegan', 30, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- cinquieme card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/noel5jpg.jpg" class="card-img-top" alt="...">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Coeur en chocolat</h5>
+                        <button type="button" class="btn btn-nico" data-toggle="modal" data-target="#modal-boite5">
+                            Description
+                        </button>
+                    </div>
+
+                    <!-- cinquieme modal -->
+                    <div class="modal fade" id="modal-boite5" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coeur chocolat</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/noel5jpg.jpg" class="imgModal">
+                                    <p class="mt-4">Cette boite de chocolat est composé de :
+                                        présentés dans une boite raffinée "Réservé exclusivement aux
+                                        gourmands
+                                        !",
+                                        avec emballage cadeau.</p>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 25 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel5jpg.jpg','pâte à tartiner vegan', 25, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- sixieme card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/noel10.jpg" class="card-img-top" alt="Img truffe">
+                    <div class="card-body shadow">
+                        <h5 class="card-title">Truffe</h5>
+                        <button type="button" class="btn btn-nico" data-toggle="modal" data-target="#modal-boite6">
+                            Description
+                        </button>
+                    </div>
+
+
+                    <!-- sixieme modal -->
+                    <div class="modal fade" id="modal-boite6" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Truffe</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/noel10.jpg" class="imgModal">
+                                    <P class="mt-4">Ce cadeau d'anniversaire original est composé de :
+                                        1 Boite de chocolats noir et/ou au lait avec 25 (env 230g) ou 35
+                                        (env
+                                        310g)
+                                        ou
+                                        55 (env 490g) pièces,
+                                        1 Ballon "Anniversaire" gonflé à l'hélium (Diam 40cm),
+                                        présentés dans un emballage cadeau.
+                                        Ce cadeau chocolat peut être offerte à tous les gourmand(e)s pour
+                                        leur
+                                        anniversaire.</P>
+
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 50 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold text-white"
+                                        onclick="addToCart('assets/img/noel10.jpg','pâte à tartiner vegan', 50, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- céline -->
+    <div id="chocolatTradi" class="fantom"></div>
+
+    <h1 class="text-center tradChocoTitle">Chocolats traditionels</h1>
+
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+
+                <!-- first card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite1.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Coffret 15 chocolats à offrir</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoFirstBox">Description</button>
+                    </div>
+
+
+                    <!-- first card Modal -->
+                    <div class="modal fade" id="modalTradChocoFirstBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret 15 chocolats à offrir</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/boite1.jpg" alt="boite_1" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Le Coffret 15 chocolats est un incontournable, un concentré
+                                        du
+                                        savoir-faire de l'atelier
+                                        La Manu. Il marie le meilleur des deux mondes : la douceur du chocolat au lait
+                                        et la puissance du chocolat noir. Vous retrouverez dans ce coffret un panel de
+                                        pralinés,
+                                        des chocolats fourrés aux amandes ou aux noisettes. Ils se déclinent en
+                                        feuilleté,
+                                        rocher, pétillant, éclats de caramel et à l’ancienne, chacun disposant d’une
+                                        variante
+                                        chocolat noir et chocolat au lait.</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 15 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold"
+                                        onclick="addToCart('assets/img/boite1.jpg', 'Coffret 20 chocolats', 15, 1)">Ajouter
+                                        au panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- second card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite2.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Coffret 20 chocolats à offrir</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoSecondBox">Description</button>
+                    </div>
+
+                    <!-- second card Modal -->
+                    <div class="modal fade" id="modalTradChocoSecondBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret 20 chocolats à offrir</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/Boite2.jpg" alt="boite_2" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Le Coffret 20 chocolats est un incontournable, un concentré
+                                        du
+                                        savoir-faire de l'atelier
+                                        La Manu. Il marie le meilleur des deux mondes : la douceur du chocolat au lait
+                                        et la puissance du chocolat noir. Vous retrouverez dans ce coffret un panel de
+                                        pralinés,
+                                        des chocolats fourrés aux amandes ou aux noisettes. Ils se déclinent en
+                                        feuilleté,
+                                        rocher, pétillant, éclats de caramel et à l’ancienne, chacun disposant d’une
+                                        variante
+                                        chocolat noir et chocolat au lait.</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 22 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold"
+                                        onclick="addToCart('assets/img/boite2.jpg', 'Coffret 20 chocolats', 22, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- third card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite3.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Ballotin assortiment édition love</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoThirdBox">Description</button>
+                    </div>
+
+                    <!-- third card Modal -->
+                    <div class="modal fade" id="modalTradChocoThirdBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ballotin assortiment édition love
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/boite3.jpg" alt="boite_3" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Ballotin édition Love avec coeurs en chocolat noir
+                                        et/ou au lait (12 pièces) - Chocolat pur beurre de cacao fabriqué
+                                        artisanalement</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 14 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold"
+                                        onclick="addToCart('assets/img/boite3.jpg', 'Ballotin assortiment édition love', 14, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <!-- fourth card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite4.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Coffret assortiment chocolat noir et au lait</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoFourthBox">Description</button>
+                    </div>
+
+                    <!-- fourth card Modal -->
+                    <div class="modal fade" id="modalTradChocoFourthBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret assortiment chocolat noir et
+                                        au
+                                        lait
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/boite4.jpg" alt="boite_4" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Ce coffret contient une sélection de 24 pralines les plus
+                                        fins au
+                                        crème, ganache et praliné. Chaque pièce est enrobée de chocolat noir soyeux, de
+                                        chocolat
+                                        blanc doux ou de chocolat au lait crémeux; bref, cette boîte vaut plus que son
+                                        poids
+                                        en
+                                        or !</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 25 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success font-weight-bold"
+                                        onclick="addToCart('assets/img/boite4.jpg', 'Coffret chocolat noir et au lait', 25, 1)">Ajouter
+                                        au
+                                        panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fifth card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite5.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Coffret chocolats belges</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoFifthBox">Description</button>
+                    </div>
+
+                    <!-- fifth card Modal -->
+                    <div class="modal fade" id="modalTradChocoFifthBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Coffret chocolats belges</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/boite5.jpg" alt="boite_5" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Avec le plus prestigieux des cadeaux, la Boîte de chocolats
+                                        belges,
+                                        vous
+                                        êtes assuré d’impressionner et de ravir. Cette élégante boîte en velours brun
+                                        est le
+                                        présent idéal pour un ami, un collègue ou une réunion de famille. Cette boîte
+                                        est remplie d'une sélection de délicieux chocolats et irrésistibles carrés.</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 19 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success"
+                                        onclick="addToCart('assets/img/boite5.jpg', 'Coffret chocolats belges', 19, 1)">Ajouter
+                                        au panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sixth card -->
+                <div class="card text-center mr-auto m-5 shadow" style="width: 18rem;">
+                    <img src="assets/img/boite6.jpg" class="card-img-top" alt="boite_1">
+                    <div class="card-body">
+                        <h5 class="card-title">Grand coffret 25 chocolats</h5>
+                        <button type="button" class="btn btnTraditionalChocolate" data-toggle="modal"
+                            data-target="#modalTradChocoSixthBox">Description</button>
+                    </div>
+
+                    <!-- sixth card Modal -->
+                    <div class="modal fade" id="modalTradChocoSixthBox" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Grand coffret assortiment de 25
+                                        chocolats
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="assets/img/boite6.jpg" alt="boite_6" class="tradiChocoImgBox">
+                                    <p class="text-center mt-4">Retrouvez avec cet assortiment de chocolats au lait, noirs et
+                                        blancs
+                                        une véritable palette de saveurs : des ganaches onctueuses, des pralinés
+                                        torréfiés à
+                                        cœur, pâtes d'amandes, nougatines et bien d'autres à découvrir. Créés et
+                                        fabriqués
+                                        en
+                                        France à partir des ingrédients les plus fins, les chocolats de La Manu raviront
+                                        tous
+                                        les palais avec des recettes classiques comme des plus originales. Toute la
+                                        force et
+                                        la
+                                        douceur d’un chocolat de qualité pour succomber à la tentation et partager un
+                                        agréable
+                                        moment chocolaté. Un joli cadeau chocolaté pour soi ou pour ceux qu’on aime.</p>
+                                    <p class="bgPriceModal text-white text-center font-weight-bold mt-4">Prix : 30 €</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success"
+                                        onclick="addToCart('assets/img/boite6.jpg', 'Grand coffret assortiment 25 chocolats', 30, 1)">Ajouter
+                                        au panier</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- nicolas -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-3 col-sm ">
+                    <div class="network">
+                        <h1 class="title-nc">RESEAUX</h1>
+                        <a href="#" <i class="fab fa-facebook-f"></i></a>
+                        <a href="#" <i class="fab fa-twitter-square"></i></a>
+                        <a href="#" <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" <i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm ">
+                    <div class="phone">
+                        <h1 class="title-nc">CONTACT</h1>
+                        <i class="fas fa-phone-alt"></i>
+                        00.00.00.00.00
+                    </div>
+                    <div class="mail">
+                        <i class="far fa-envelope-open"></i>
+                        <p>Mail cliquer <a href="#">ici </a> </p>
+                    </div>
+                </div>
+
+
+                <div class="col-3 col-sm ">
+                    <div class="credit-cards">
+                        <h1 class="title-nc">PAIEMENT</h1>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <p class="text-nc">Paiement sécurisé</p>
+                        <p class="text-nc">Chèques cadeaux </p>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm ">
+                    <div class="Mention">
+                        <h1 class="title-nc">MENTION LEGAL</h1>
+                        <p class="text-nc">Mentions Légales</p>
+                        <p class="text-nc">Conditions générales de vente</p>
+                        <p class="text-nc">Cookies</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="copy">
+                <p class="text-nc text-center"><i class="far fa-copyright"></i>2020.Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

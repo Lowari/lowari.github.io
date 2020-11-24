@@ -1,0 +1,219 @@
+.imgModal{
+    width: 25rem;
+    height: auto;
+}
+.bgPriceModal{
+    background-color: #4E342E;
+    height: 1.5rem;
+}
+body{
+    background-color: #EFEBE9;
+}
+.btnPate{
+    background-color: #5D4037;
+}
+
+/* nicolas */
+
+footer{
+ 
+    border-width: 5px;
+    background-color: #8D6E63;
+}
+
+.credit-cards{
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 5%;
+}
+.phone{
+    text-align: center;
+    margin-top: 5%;
+}
+.mail{
+    text-align: center;
+    margin-top: 5%;
+  
+}
+.network{
+    margin-top: 5%;
+    text-align: center;
+    font-size: 2rem;
+}
+.title-nc{
+    font-size:1rem;
+    text-decoration:underline ;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.text-nc{
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Mention{
+    text-align: center;
+    padding: 5%;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+/* .copy{
+    text-align: center;
+
+} */
+/* .card{
+    text-align: center;
+    width: 25rem; 
+    height: auto;  
+    margin-top: 2%; 
+   
+
+} */
+
+body{
+    background-color:#EFEBE9 ;
+}
+
+.btn-nico{
+   background-color: #5D4037;
+   color: white;
+}
+
+.prix{
+    background-color:#3E2723 ;
+    color: white;
+}
+
+/* céline  */
+
+body{
+    background-color: #EFEBE9;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+}
+
+#chocolatePresentationProduct {
+    text-align: justify;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-top: 2rem;
+}
+
+.presentation-title, .product-title {
+    color: #4E342E;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin-top: 3rem;
+}
+
+.presentation-title {
+    font-size: 2rem;
+}
+
+.product-title {
+    font-size: 1.8rem;
+}
+
+.product-description {
+    font-size: 1.3rem;
+    font-family: 'Lucida Sans';
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+.presentation-img-cacao {
+    margin-top: 3rem;
+}
+
+/* page chocolat traditionel */
+
+/* .firstRowTraditionalChocolate, .secondRowTraditionalChocolate {
+    display: flex;
+    flex-direction: row;
+} */
+
+.btnTraditionalChocolate {
+    background-color: #5D4037;
+    color: white;
+}
+
+.tradChocoTitle {
+    margin-bottom: 3rem;
+    color: #4E342E;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin-top: 3rem;
+    font-size: 3rem;
+}
+
+.card {
+    margin: auto;
+}
+
+.tradiChocoImgBox {
+    height: auto;
+    width: 25rem;
+}
+
+.tradiChocoBorder {
+    background-color: #3E2723;
+    color: white;
+}
+
+/* mike */
+
+#letterColor{
+    color: brown;
+}
+    
+.colorNavBar{
+    background-color: #8D6E63;
+}
+    
+#fa-shopping-cart {
+    color: #2B180F;
+}
+    
+.typeOfFont{
+    font-family: Stencil Std, fantasy;
+}
+    
+    
+.sizeOfFont{
+    font-size: 1.5rem;
+}
+    
+    
+.margeMenu{
+    margin: 0px 2rem;
+}
+.fantom{
+    height: 6rem;
+}
+/* celine */
+
+/* modal panier */
+
+table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+thead {
+    background-color: #795548;
+    color: white;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 1rem;
+}
+.imgPanier{
+    width: 5rem;
+    height: 5rem;
+}
